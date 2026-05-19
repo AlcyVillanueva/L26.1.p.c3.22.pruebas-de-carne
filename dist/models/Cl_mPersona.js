@@ -42,5 +42,31 @@ export default class Cl_mPersona {
         });
         return mejor.precioPorKg();
     }
+    // Método para obtener la cantidad de registros procesados
+    cantidadRegistros() {
+        return this.bodegas.length;
+    }
+    // Método para obtener el precio bruto de la última bodega registrada
+    // Procesos usados: array.length y acceso [index] (para obtener el último elemento)
+    ultimoPrecio() {
+        if (this.bodegas.length === 0)
+            return 0;
+        // Acceso al último índice: length - 1
+        return this.bodegas[this.bodegas.length - 1].precio;
+    }
+    // Método para obtener los nombres con precio bruto superior al último registrado
+    // Procesos usados: filter (para filtrar), map (para extraer los nombres), acceso [index] y array.length
+    nombresConValorSuperiorAlUltimo() {
+        if (this.bodegas.length <= 1)
+            return [];
+        // Guardamos el precio bruto de la última bodega para comparar
+        const ultimoPrecio = this.ultimoPrecio();
+        // 1. Filtramos las bodegas cuyo precio bruto sea estrictamente mayor al último
+        // Proceso usado: filter
+        const filtradas = this.bodegas.filter((b) => b.precio > ultimoPrecio);
+        // 2. Extraemos únicamente los nombres de las bodegas filtradas
+        // Proceso usado: map
+        return filtradas.map((b) => b.nombre);
+    }
 }
 //# sourceMappingURL=Cl_mPersona.js.map

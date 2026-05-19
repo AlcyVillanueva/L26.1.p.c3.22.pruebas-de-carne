@@ -9,6 +9,9 @@ export default class Cl_vPersona implements I_vPersona {
   lblTotalKgs: HTMLLabelElement;
   lblBodegaMejorPrecio: HTMLLabelElement;
   lblMejorPrecio: HTMLLabelElement;
+  lblCantidadRegistros: HTMLLabelElement;
+  lblUltimoPrecio: HTMLLabelElement;
+  lblNombresSuperiorAlUltimo: HTMLLabelElement;
   btNuevaBodega: HTMLButtonElement;
   tbBodegas: HTMLTableElement;
   vista: HTMLElement | null;
@@ -20,6 +23,9 @@ export default class Cl_vPersona implements I_vPersona {
     this.lblTotalKgs = document.getElementById("body_lblTotalKgs") as HTMLLabelElement;
     this.lblBodegaMejorPrecio = document.getElementById("body_lblBodegaMejorPrecio") as HTMLLabelElement;
     this.lblMejorPrecio = document.getElementById("body_lblMejorPrecio") as HTMLLabelElement;
+    this.lblCantidadRegistros = document.getElementById("body_lblCantidadRegistros") as HTMLLabelElement;
+    this.lblUltimoPrecio = document.getElementById("body_lblUltimoPrecio") as HTMLLabelElement;
+    this.lblNombresSuperiorAlUltimo = document.getElementById("body_lblNombresSuperiorAlUltimo") as HTMLLabelElement;
     this.tbBodegas = document.getElementById("body_tbBodegas") as HTMLTableElement;
   }
 
@@ -34,11 +40,17 @@ export default class Cl_vPersona implements I_vPersona {
     totalKgs,
     bodegaMejorPrecio,
     mejorPrecio,
+    cantidadRegistros,
+    ultimoPrecio,
+    nombresConValorSuperiorAlUltimo,
   }: {
     bodegas: Cl_mBodega[];
     totalKgs: number;
     bodegaMejorPrecio: string;
     mejorPrecio: number;
+    cantidadRegistros: number;
+    ultimoPrecio: number;
+    nombresConValorSuperiorAlUltimo: string[];
   }): void {
     // Limpia la tabla
     this.tbBodegas.innerHTML = "";
@@ -57,5 +69,10 @@ export default class Cl_vPersona implements I_vPersona {
     this.lblTotalKgs.innerHTML = totalKgs.toFixed(2);
     this.lblBodegaMejorPrecio.innerHTML = bodegaMejorPrecio;
     this.lblMejorPrecio.innerHTML = mejorPrecio.toFixed(2);
+    this.lblCantidadRegistros.innerHTML = cantidadRegistros.toString();
+    this.lblUltimoPrecio.innerHTML = ultimoPrecio.toFixed(2);
+    this.lblNombresSuperiorAlUltimo.innerHTML = nombresConValorSuperiorAlUltimo.length > 0
+      ? nombresConValorSuperiorAlUltimo.join(", ")
+      : "-";
   }
 }

@@ -5,6 +5,9 @@ export default class Cl_vPersona {
     lblTotalKgs;
     lblBodegaMejorPrecio;
     lblMejorPrecio;
+    lblCantidadRegistros;
+    lblUltimoPrecio;
+    lblNombresSuperiorAlUltimo;
     btNuevaBodega;
     tbBodegas;
     vista;
@@ -15,6 +18,9 @@ export default class Cl_vPersona {
         this.lblTotalKgs = document.getElementById("body_lblTotalKgs");
         this.lblBodegaMejorPrecio = document.getElementById("body_lblBodegaMejorPrecio");
         this.lblMejorPrecio = document.getElementById("body_lblMejorPrecio");
+        this.lblCantidadRegistros = document.getElementById("body_lblCantidadRegistros");
+        this.lblUltimoPrecio = document.getElementById("body_lblUltimoPrecio");
+        this.lblNombresSuperiorAlUltimo = document.getElementById("body_lblNombresSuperiorAlUltimo");
         this.tbBodegas = document.getElementById("body_tbBodegas");
     }
     // Asigna la función que se ejecutará al dar click en Nueva Bodega
@@ -22,7 +28,7 @@ export default class Cl_vPersona {
         this.btNuevaBodega.onclick = callback;
     }
     // Método para renderizar la tabla y los totales
-    mostrarBodegas({ bodegas, totalKgs, bodegaMejorPrecio, mejorPrecio, }) {
+    mostrarBodegas({ bodegas, totalKgs, bodegaMejorPrecio, mejorPrecio, cantidadRegistros, ultimoPrecio, nombresConValorSuperiorAlUltimo, }) {
         // Limpia la tabla
         this.tbBodegas.innerHTML = "";
         // Agrega una fila por cada bodega
@@ -40,6 +46,11 @@ export default class Cl_vPersona {
         this.lblTotalKgs.innerHTML = totalKgs.toFixed(2);
         this.lblBodegaMejorPrecio.innerHTML = bodegaMejorPrecio;
         this.lblMejorPrecio.innerHTML = mejorPrecio.toFixed(2);
+        this.lblCantidadRegistros.innerHTML = cantidadRegistros.toString();
+        this.lblUltimoPrecio.innerHTML = ultimoPrecio.toFixed(2);
+        this.lblNombresSuperiorAlUltimo.innerHTML = nombresConValorSuperiorAlUltimo.length > 0
+            ? nombresConValorSuperiorAlUltimo.join(", ")
+            : "-";
     }
 }
 //# sourceMappingURL=Cl_vPersona.js.map

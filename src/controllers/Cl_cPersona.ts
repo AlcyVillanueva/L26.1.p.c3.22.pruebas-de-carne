@@ -61,6 +61,9 @@ export default class Cl_cPersona {
       totalKgs: this.mPersona.totalKgs,
       bodegaMejorPrecio: this.mPersona.bodegaMejorPrecio(),
       mejorPrecio: this.mPersona.mejorPrecio(),
+      cantidadRegistros: this.mPersona.cantidadRegistros(),
+      ultimoPrecio: this.mPersona.ultimoPrecio(),
+      nombresConValorSuperiorAlUltimo: this.mPersona.nombresConValorSuperiorAlUltimo(),
     });
   }
 }

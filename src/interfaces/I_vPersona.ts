@@ -10,5 +10,8 @@ export interface I_vPersona {
     totalKgs: number; // Total de Kgs calculados
     bodegaMejorPrecio: string; // Nombre de la mejor bodega
     mejorPrecio: number; // Precio por Kg de la mejor bodega
+    cantidadRegistros: number; // Cantidad de registros procesados
+    ultimoPrecio: number; // Último precio registrado
+    nombresConValorSuperiorAlUltimo: string[]; // Nombres con precio por Kg superior al último
   }): void;
 }
