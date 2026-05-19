@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pruebas de Carne</title>
+</head>
+
+<body>
+
+  <section id="body">
+    <h2>Pruebas de Carne</h2>
+    <button id="body_btNuevaBodega">Nueva Bodega</button>
+    <hr>
+    <table border="1"> 
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Peso (g)</th>
+          <th>Precio (Bs)</th>
+          <th>Precio por Kg (Bs)</th>
+        </tr>
+      </thead>
+      <tbody id="body_tbBodegas"></tbody>
+    </table>
+    <hr>
+    <div>
+      Bodega con mejor precio: <span id="body_lblBodegaMejorPrecio">-</span>, 
+      con Bs: <span id="body_lblMejorPrecio">0 el Kg</span>
+    <br>
+      Total anotados: <span id="body_lblTotalKgs">0 Kg</span>
+    </div>
+  </section>
+
+  <section id="Bodega" hidden style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; width: 300px;">
+    <h5>Procesar Bodega</h5>
+    <div>
+      <label>Nombre:
+        <input type="text" id="Bodega_inNombre" placeholder="Nombre de la bodega">
+      </label>
+    </div>
+    <div>
+      <label>Peso (gr):
+        <input type="number" id="Bodega_inPeso" placeholder="Ej: 500">
+      </label>
+    </div>
+    <div>
+      <label>Precio (Bs):
+        <input type="number" id="Bodega_inPrecio" placeholder="Ej: 150">
+      </label>
+    </div>
+    <br>
+    <button id="Bodega_btCancelar">Cancelar</button>
+    <button id="Bodega_btAceptar">Aceptar</button>
+  </section>
+
+  <script type="module">
+    import Cl_cPersona from "./dist/controllers/Cl_cPersona.js";
+    import Cl_cBodega from "./dist/controllers/Cl_cBodega.js";
+    import Cl_vPersona from "./dist/views/Cl_vPersona.js";
+    import Cl_vBodega from "./dist/views/Cl_vBodega.js";
+
+    // 1. Instanciamos las vistas
+    const vistaPersona = new Cl_vPersona();
+    const vistaBodega = new Cl_vBodega();
+
+    // 2. Inyectamos las vistas en los controladores
+    const controladorBodega = new Cl_cBodega(vistaBodega);
+    new Cl_cPersona(vistaPersona, controladorBodega);
+  </script>
+</body>
+
+</html>
