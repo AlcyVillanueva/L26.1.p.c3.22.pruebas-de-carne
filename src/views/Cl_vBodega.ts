@@ -4,6 +4,7 @@ import { I_vBodega } from "../interfaces/I_vBodega.js";
 export default class Cl_vBodega implements I_vBodega {
   // Elementos del DOM
   inNombre: HTMLInputElement;
+  inTipo: HTMLSelectElement;
   inPeso: HTMLInputElement;
   inPrecio: HTMLInputElement;
   btCancelar: HTMLButtonElement;
@@ -14,6 +15,7 @@ export default class Cl_vBodega implements I_vBodega {
   constructor() {
     this.vista = document.getElementById("Bodega") as HTMLElement;
     this.inNombre = document.getElementById("Bodega_inNombre") as HTMLInputElement;
+    this.inTipo = document.getElementById("Bodega_inTipo") as HTMLSelectElement;
     this.inPeso = document.getElementById("Bodega_inPeso") as HTMLInputElement;
     this.inPrecio = document.getElementById("Bodega_inPrecio") as HTMLInputElement;
     this.btCancelar = document.getElementById("Bodega_btCancelar") as HTMLButtonElement;
@@ -31,6 +33,10 @@ export default class Cl_vBodega implements I_vBodega {
   // Obtiene el precio como número flotante
   get precio(): number {
     return parseFloat(this.inPrecio.value.trim());
+  }
+  // Obtiene el tipo de carne
+  get tipo(): string {
+    return this.inTipo.value;
   }
 
   // Asigna la función que se ejecutará al dar click en Aceptar

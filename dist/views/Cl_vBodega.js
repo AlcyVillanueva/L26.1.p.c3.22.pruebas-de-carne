@@ -2,6 +2,7 @@
 export default class Cl_vBodega {
     // Elementos del DOM
     inNombre;
+    inTipo;
     inPeso;
     inPrecio;
     btCancelar;
@@ -11,6 +12,7 @@ export default class Cl_vBodega {
     constructor() {
         this.vista = document.getElementById("Bodega");
         this.inNombre = document.getElementById("Bodega_inNombre");
+        this.inTipo = document.getElementById("Bodega_inTipo");
         this.inPeso = document.getElementById("Bodega_inPeso");
         this.inPrecio = document.getElementById("Bodega_inPrecio");
         this.btCancelar = document.getElementById("Bodega_btCancelar");
@@ -27,6 +29,10 @@ export default class Cl_vBodega {
     // Obtiene el precio como número flotante
     get precio() {
         return parseFloat(this.inPrecio.value.trim());
+    }
+    // Obtiene el tipo de carne
+    get tipo() {
+        return this.inTipo.value;
     }
     // Asigna la función que se ejecutará al dar click en Aceptar
     onAceptar(callback) {

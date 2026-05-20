@@ -12,6 +12,8 @@ export default class Cl_vPersona implements I_vPersona {
   lblCantidadRegistros: HTMLLabelElement;
   lblUltimoPrecio: HTMLLabelElement;
   lblNombresSuperiorAlUltimo: HTMLLabelElement;
+  lblPorcentajeVacuno: HTMLLabelElement;
+  lblBodegaVacunoMasCostosa: HTMLLabelElement;
   btNuevaBodega: HTMLButtonElement;
   tbBodegas: HTMLTableElement;
   vista: HTMLElement | null;
@@ -26,6 +28,8 @@ export default class Cl_vPersona implements I_vPersona {
     this.lblCantidadRegistros = document.getElementById("body_lblCantidadRegistros") as HTMLLabelElement;
     this.lblUltimoPrecio = document.getElementById("body_lblUltimoPrecio") as HTMLLabelElement;
     this.lblNombresSuperiorAlUltimo = document.getElementById("body_lblNombresSuperiorAlUltimo") as HTMLLabelElement;
+    this.lblPorcentajeVacuno = document.getElementById("body_lblPorcentajeVacuno") as HTMLLabelElement;
+    this.lblBodegaVacunoMasCostosa = document.getElementById("body_lblBodegaVacunoMasCostosa") as HTMLLabelElement;
     this.tbBodegas = document.getElementById("body_tbBodegas") as HTMLTableElement;
   }
 
@@ -43,6 +47,8 @@ export default class Cl_vPersona implements I_vPersona {
     cantidadRegistros,
     ultimoPrecio,
     nombresConValorSuperiorAlUltimo,
+    porcentajeVacuno,
+    bodegaVacunoMasCostosa,
   }: {
     bodegas: Cl_mBodega[];
     totalKgs: number;
@@ -51,6 +57,8 @@ export default class Cl_vPersona implements I_vPersona {
     cantidadRegistros: number;
     ultimoPrecio: number;
     nombresConValorSuperiorAlUltimo: string[];
+    porcentajeVacuno: number;
+    bodegaVacunoMasCostosa: string;
   }): void {
     // Limpia la tabla
     this.tbBodegas.innerHTML = "";
@@ -59,6 +67,7 @@ export default class Cl_vPersona implements I_vPersona {
       const tr = document.createElement("tr");
       tr.innerHTML = html`
         <td>${b.nombre}</td>
+        <td>${b.tipo}</td>
         <td>${b.peso}</td>
         <td>${b.precio}</td>
         <td>${b.precioPorKg().toFixed(2)}</td>
@@ -74,5 +83,7 @@ export default class Cl_vPersona implements I_vPersona {
     this.lblNombresSuperiorAlUltimo.innerHTML = nombresConValorSuperiorAlUltimo.length > 0
       ? nombresConValorSuperiorAlUltimo.join(", ")
       : "-";
+    this.lblPorcentajeVacuno.innerHTML = porcentajeVacuno.toFixed(2);
+    this.lblBodegaVacunoMasCostosa.innerHTML = bodegaVacunoMasCostosa;
   }
 }

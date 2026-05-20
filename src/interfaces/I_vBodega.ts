@@ -6,6 +6,8 @@ export interface I_vBodega {
   get peso(): number;
   // Obtiene el precio ingresado por el usuario
   get precio(): number;
+  // Obtiene el tipo de carne ingresado por el usuario
+  get tipo(): string;
   
   // Muestra el formulario
   mostrar(): void;

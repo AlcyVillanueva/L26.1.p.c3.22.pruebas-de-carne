@@ -77,4 +77,26 @@ mejorPrecio(): number {
     // Proceso usado: map
     return filtradas.map((b) => b.nombre);
   }
+
+  // Método para obtener el porcentaje de bodegas que vendieron carne de tipo vacuno
+  // Proceso usado: filter y array.length
+  porcentajeVacuno(): number {
+    if (this.bodegas.length === 0) return 0;
+    const vacunoCount = this.bodegas.filter((b) => b.tipo === "vacuno").length;
+    return (vacunoCount / this.bodegas.length) * 100;
+  }
+
+  // Método para obtener el nombre de la bodega de tipo vacuno con mayor precio por Kg
+  // Proceso usado: filter, forEach
+  bodegaVacunoMasCostosa(): string {
+    const vacunas = this.bodegas.filter((b) => b.tipo === "vacuno");
+    if (vacunas.length === 0) return "-";
+    let masCostosa = vacunas[0];
+    vacunas.forEach((b) => {
+      if (b.precioPorKg() > masCostosa.precioPorKg()) {
+        masCostosa = b;
+      }
+    });
+    return masCostosa.nombre;
+  }
 }

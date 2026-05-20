@@ -8,6 +8,8 @@ export default class Cl_vPersona {
     lblCantidadRegistros;
     lblUltimoPrecio;
     lblNombresSuperiorAlUltimo;
+    lblPorcentajeVacuno;
+    lblBodegaVacunoMasCostosa;
     btNuevaBodega;
     tbBodegas;
     vista;
@@ -21,6 +23,8 @@ export default class Cl_vPersona {
         this.lblCantidadRegistros = document.getElementById("body_lblCantidadRegistros");
         this.lblUltimoPrecio = document.getElementById("body_lblUltimoPrecio");
         this.lblNombresSuperiorAlUltimo = document.getElementById("body_lblNombresSuperiorAlUltimo");
+        this.lblPorcentajeVacuno = document.getElementById("body_lblPorcentajeVacuno");
+        this.lblBodegaVacunoMasCostosa = document.getElementById("body_lblBodegaVacunoMasCostosa");
         this.tbBodegas = document.getElementById("body_tbBodegas");
     }
     // Asigna la función que se ejecutará al dar click en Nueva Bodega
@@ -28,7 +32,7 @@ export default class Cl_vPersona {
         this.btNuevaBodega.onclick = callback;
     }
     // Método para renderizar la tabla y los totales
-    mostrarBodegas({ bodegas, totalKgs, bodegaMejorPrecio, mejorPrecio, cantidadRegistros, ultimoPrecio, nombresConValorSuperiorAlUltimo, }) {
+    mostrarBodegas({ bodegas, totalKgs, bodegaMejorPrecio, mejorPrecio, cantidadRegistros, ultimoPrecio, nombresConValorSuperiorAlUltimo, porcentajeVacuno, bodegaVacunoMasCostosa, }) {
         // Limpia la tabla
         this.tbBodegas.innerHTML = "";
         // Agrega una fila por cada bodega
@@ -36,6 +40,7 @@ export default class Cl_vPersona {
             const tr = document.createElement("tr");
             tr.innerHTML = html `
         <td>${b.nombre}</td>
+        <td>${b.tipo}</td>
         <td>${b.peso}</td>
         <td>${b.precio}</td>
         <td>${b.precioPorKg().toFixed(2)}</td>
@@ -51,6 +56,8 @@ export default class Cl_vPersona {
         this.lblNombresSuperiorAlUltimo.innerHTML = nombresConValorSuperiorAlUltimo.length > 0
             ? nombresConValorSuperiorAlUltimo.join(", ")
             : "-";
+        this.lblPorcentajeVacuno.innerHTML = porcentajeVacuno.toFixed(2);
+        this.lblBodegaVacunoMasCostosa.innerHTML = bodegaVacunoMasCostosa;
     }
 }
 //# sourceMappingURL=Cl_vPersona.js.map

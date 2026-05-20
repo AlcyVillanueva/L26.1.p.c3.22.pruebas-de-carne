@@ -18,10 +18,10 @@ export default class Cl_cPersona {
     cargarBodegasIniciales() {
         // Arreglo con los datos iniciales de las bodegas
         const notas = [
-            { nombre: "la esquina", peso: 500, precio: 150 },
-            { nombre: "la viejita", peso: 400, precio: 132 },
-            { nombre: "mini market", peso: 800, precio: 400 },
-            { nombre: "al frente", peso: 200, precio: 120 },
+            { nombre: "la esquina", peso: 500, precio: 150, tipo: "vacuno" },
+            { nombre: "la viejita", peso: 400, precio: 132, tipo: "cerdo" },
+            { nombre: "mini market", peso: 800, precio: 400, tipo: "pollo" },
+            { nombre: "al frente", peso: 200, precio: 120, tipo: "vacuno" },
         ];
         // Recorre cada nota y la agrega al modelo de persona
         notas.forEach((nota) => {
@@ -54,6 +54,8 @@ export default class Cl_cPersona {
             cantidadRegistros: this.mPersona.cantidadRegistros(),
             ultimoPrecio: this.mPersona.ultimoPrecio(),
             nombresConValorSuperiorAlUltimo: this.mPersona.nombresConValorSuperiorAlUltimo(),
+            porcentajeVacuno: this.mPersona.porcentajeVacuno(),
+            bodegaVacunoMasCostosa: this.mPersona.bodegaVacunoMasCostosa(),
         });
     }
 }

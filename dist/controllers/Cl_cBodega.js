@@ -27,6 +27,7 @@ export default class Cl_cBodega {
             nombre: this.vista.nombre,
             peso: this.vista.peso,
             precio: this.vista.precio,
+            tipo: this.vista.tipo,
         }));
         this.vista.ocultar(); // Oculta el formulario
     }

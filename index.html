@@ -17,6 +17,7 @@
       <thead>
         <tr>
           <th>Nombre</th>
+          <th>Tipo</th>
           <th>Peso (g)</th>
           <th>Precio (Bs)</th>
           <th>Precio por Kg (Bs)</th>
@@ -37,6 +38,10 @@
       <br>
       Nombres con valor superior al último: <span id="body_lblNombresSuperiorAlUltimo">-</span>
       <br>
+      Porcentaje de bodegas con carne de vacuno: <span id="body_lblPorcentajeVacuno">0</span>%
+      <br>
+      Bodega de vacuno más costosa: <span id="body_lblBodegaVacunoMasCostosa">-</span>
+      <br>
       Metodos usados: forEach, reduce, filter, map, acceso [index] y array.length
     </div>
   </section>
@@ -46,6 +51,15 @@
     <div>
       <label>Nombre:
         <input type="text" id="Bodega_inNombre" placeholder="Nombre de la bodega">
+      </label>
+    </div>
+    <div>
+      <label>Tipo de carne:
+        <select id="Bodega_inTipo">
+          <option value="vacuno">Vacuno</option>
+          <option value="cerdo">Cerdo</option>
+          <option value="pollo">Pollo</option>
+        </select>
       </label>
     </div>
     <div>

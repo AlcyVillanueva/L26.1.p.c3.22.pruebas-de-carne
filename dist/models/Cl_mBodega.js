@@ -3,11 +3,13 @@ export default class Cl_mBodega {
     _nombre = ""; // Nombre de la bodega
     _peso = 0; // Peso en gramos
     _precio = 0; // Precio en Bs
+    _tipo = ""; // Tipo de carne (vacuno, cerdo, pollo)
     // Constructor que recibe un objeto con los datos
-    constructor({ nombre, peso, precio }) {
+    constructor({ nombre, peso, precio, tipo }) {
         this.nombre = nombre;
         this.peso = peso;
         this.precio = precio;
+        this.tipo = tipo;
     }
     // Setter para el nombre
     set nombre(value) {
@@ -32,6 +34,14 @@ export default class Cl_mBodega {
     // Getter para el precio
     get precio() {
         return this._precio;
+    }
+    // Setter para el tipo
+    set tipo(value) {
+        this._tipo = value;
+    }
+    // Getter para el tipo
+    get tipo() {
+        return this._tipo;
     }
     // Método para calcular el precio por Kilogramo
     precioPorKg() {

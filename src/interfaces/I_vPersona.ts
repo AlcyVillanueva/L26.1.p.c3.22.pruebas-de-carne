@@ -13,5 +13,7 @@ export interface I_vPersona {
     cantidadRegistros: number; // Cantidad de registros procesados
     ultimoPrecio: number; // Último precio registrado
     nombresConValorSuperiorAlUltimo: string[]; // Nombres con precio por Kg superior al último
+    porcentajeVacuno: number; // Porcentaje de carne de vacuno
+    bodegaVacunoMasCostosa: string; // Nombre de la bodega de vacuno más costosa
   }): void;
 }
